@@ -497,13 +497,22 @@ ABAP OData services,Implemented full CRUD operations.</p>
                 <a href="https://linkedin.com/in/ameen-ul-hassan-khan-420532284" target="_blank" class="info-link"><i class="fa-brands fa-linkedin"></i> linkedin.com/in/ameenkhan</a>
             </div>
             <div class="contact-form">
-                <form id="portfolio-form">
-                    <div class="form-group"><label>SENDER NAME</label><input type="text" placeholder="Full Name" required></div>
-                    <div class="form-group"><label>PROTOCOL EMAIL</label><input type="email" placeholder="email@address.com" required></div>
-                    <div class="form-group"><label>TRANSMISSION</label><textarea rows="4" placeholder="Message details..." required></textarea></div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%; border: none; cursor: pointer;">SEND SIGNAL</button>
-                </form>
-            </div>
+    <form id="portfolio-form" action="https://formspree.io/f/mqelrvlj" method="POST">
+        <div class="form-group">
+            <label>SENDER NAME</label>
+            <input type="text" name="name" placeholder="Full Name" required>
+        </div>
+        <div class="form-group">
+            <label>PROTOCOL EMAIL</label>
+            <input type="email" name="email" placeholder="email@address.com" required>
+        </div>
+        <div class="form-group">
+            <label>TRANSMISSION</label>
+            <textarea name="message" rows="4" placeholder="Message details..." required></textarea>
+        </div>
+        <button type="submit" id="submit-btn" class="btn btn-primary" style="width: 100%; border: none; cursor: pointer;">SEND SIGNAL</button>
+    </form>
+</div>
         </div>
     </section>
 
@@ -596,12 +605,44 @@ ABAP OData services,Implemented full CRUD operations.</p>
         });
 
         /* FORM */
-        document.getElementById('portfolio-form').addEventListener('submit', (e) => {
-            e.preventDefault();
-            const b = e.target.querySelector('button');
-            b.innerText = "SIGNAL SENT SUCCESSFULLY"; b.style.background = "#00ff88";
-            e.target.reset();
-        });
+       /* FORM INTERFACE (FORMSPREE AJAX) */
+const contactForm = document.getElementById('portfolio-form');
+
+contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = e.target.querySelector('button');
+    const data = new FormData(e.target);
+    
+    // Change button state to show it's working
+    btn.innerText = "TRANSMITTING SIGNAL...";
+    btn.style.opacity = "0.7";
+    btn.disabled = true;
+
+    // Send the data to Formspree
+    fetch(e.target.action, {
+        method: 'POST',
+        body: data,
+        headers: {
+            'Accept': 'application/json'
+        }
+    }).then(response => {
+        if (response.ok) {
+            btn.innerText = "SIGNAL RECEIVED SUCCESSFULLY"; 
+            btn.style.background = "#00ff88";
+            btn.style.color = "#020617";
+            btn.style.opacity = "1";
+            contactForm.reset();
+        } else {
+            btn.innerText = "TRANSMISSION ERROR";
+            btn.style.background = "#ff3333";
+            btn.disabled = false;
+        }
+    }).catch(error => {
+        btn.innerText = "CONNECTION LOST";
+        btn.style.background = "#ff3333";
+        btn.disabled = false;
+    });
+});
 
 
     // Disable Right-click
@@ -618,4 +659,5 @@ ABAP OData services,Implemented full CRUD operations.</p>
 
     </script>
 </body>
+
 </html>
