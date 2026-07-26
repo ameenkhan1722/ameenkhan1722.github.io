@@ -1490,6 +1490,112 @@ body.light-theme .panel{
   .salam-loader{margin-top:15px !important;}
 }
 
+
+
+/* ============================================================
+   UNIFIED PORTFOLIO GREETING THEME — FINAL OVERRIDE
+   Uses the exact visual language of the SAP AI/HUD portfolio
+   ============================================================ */
+.salam-intro{
+  background:
+    radial-gradient(circle at 18% 12%,rgba(77,123,255,.18),transparent 30%),
+    radial-gradient(circle at 82% 18%,rgba(77,234,255,.12),transparent 28%),
+    radial-gradient(circle at 52% 92%,rgba(255,62,201,.08),transparent 34%),
+    linear-gradient(145deg,#050914 0%,#07111d 48%,#04070e 100%) !important;
+}
+.salam-intro::before{
+  background:
+    radial-gradient(circle at 50% 18%,rgba(126,249,255,.92) 0 1.8%,rgba(77,234,255,.22) 2% 4.8%,transparent 10%),
+    radial-gradient(circle at 12% 16%,rgba(217,236,247,.70) 0 1px,transparent 1.6px),
+    radial-gradient(circle at 82% 13%,rgba(126,249,255,.68) 0 1px,transparent 1.6px),
+    radial-gradient(circle at 73% 31%,rgba(77,123,255,.55) 0 1px,transparent 1.5px),
+    radial-gradient(circle at 28% 34%,rgba(255,62,201,.38) 0 1px,transparent 1.5px),
+    linear-gradient(120deg,transparent 0 38%,rgba(77,234,255,.035) 39%,transparent 40% 100%),
+    linear-gradient(60deg,transparent 0 42%,rgba(77,123,255,.028) 43%,transparent 44% 100%) !important;
+  background-size:auto,auto,auto,auto,auto,220px 220px,220px 220px !important;
+}
+.salam-intro::after{
+  background:#030812 !important;
+  opacity:.92 !important;
+  filter:drop-shadow(0 -16px 36px rgba(77,234,255,.12)) !important;
+}
+.salam-pattern{
+  opacity:.24 !important;
+  background-image:
+    linear-gradient(30deg,transparent 24%,rgba(77,234,255,.075) 25%,rgba(77,234,255,.075) 26%,transparent 27%,transparent 74%,rgba(77,234,255,.075) 75%,rgba(77,234,255,.075) 76%,transparent 77%),
+    linear-gradient(150deg,transparent 24%,rgba(77,123,255,.055) 25%,rgba(77,123,255,.055) 26%,transparent 27%,transparent 74%,rgba(77,123,255,.055) 75%,rgba(77,123,255,.055) 76%,transparent 77%) !important;
+}
+.salam-halo{
+  opacity:.46 !important;
+  background:
+    radial-gradient(circle,transparent 42%,rgba(77,234,255,.15) 42.3% 42.7%,transparent 43%),
+    radial-gradient(circle,transparent 57%,rgba(77,123,255,.10) 57.2% 57.5%,transparent 57.8%),
+    conic-gradient(from 0deg,transparent 0 16%,rgba(77,234,255,.20) 18%,transparent 20% 48%,rgba(77,123,255,.16) 50%,transparent 52% 78%,rgba(255,62,201,.12) 80%,transparent 82% 100%) !important;
+}
+.salam-core{
+  background:linear-gradient(145deg,rgba(10,22,38,.72),rgba(5,10,20,.58)) !important;
+  border-radius:28px !important;
+  box-shadow:
+    0 30px 90px rgba(0,0,0,.46),
+    inset 0 1px 0 rgba(255,255,255,.055),
+    0 0 0 1px rgba(77,234,255,.18),
+    0 0 38px rgba(77,234,255,.08) !important;
+}
+.salam-core::before{
+  border-color:rgba(77,234,255,.18) !important;
+}
+.salam-core::after{
+  color:var(--magenta) !important;
+  background:#07111d !important;
+  text-shadow:0 0 12px rgba(255,62,201,.55) !important;
+  box-shadow:0 0 0 1px rgba(77,234,255,.16),0 0 18px rgba(77,234,255,.10) !important;
+}
+.salam-crescent{
+  box-shadow:-14px 2px 0 1px var(--cyan-2) !important;
+  filter:drop-shadow(0 0 11px rgba(77,234,255,.58)) !important;
+}
+.salam-star{
+  color:var(--magenta) !important;
+  text-shadow:0 0 11px rgba(255,62,201,.72) !important;
+}
+.salam-emblem::before,.salam-emblem::after{
+  border-color:rgba(77,234,255,.20) !important;
+}
+.salam-arabic{
+  color:var(--txt) !important;
+  text-shadow:0 0 18px rgba(77,234,255,.30) !important;
+}
+.salam-english span{
+  color:var(--txt) !important;
+  text-shadow:0 0 18px rgba(77,234,255,.20) !important;
+}
+.salam-english span:first-child{
+  color:var(--cyan-2) !important;
+  text-shadow:0 0 18px rgba(77,234,255,.45) !important;
+}
+.salam-english span:nth-child(2){
+  color:#eef8ff !important;
+}
+.salam-english span:nth-child(3){
+  color:var(--cyan) !important;
+  text-shadow:0 0 16px rgba(77,234,255,.28) !important;
+}
+.salam-subtitle{
+  color:rgba(217,236,247,.68) !important;
+}
+.salam-loader{
+  background:rgba(77,234,255,.12) !important;
+}
+.salam-loader::after{
+  background:linear-gradient(90deg,transparent,var(--cyan),var(--blue),var(--magenta),transparent) !important;
+  box-shadow:0 0 10px rgba(77,234,255,.55) !important;
+}
+.salam-status{
+  color:rgba(126,249,255,.46) !important;
+}
+@media(max-width:600px){
+  .salam-core{box-shadow:0 22px 64px rgba(0,0,0,.48),0 0 0 1px rgba(77,234,255,.16),0 0 26px rgba(77,234,255,.07) !important;}
+}
 </style>
 <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cinzel:wght@500;600;700&display=swap" rel="stylesheet"/>
 </head>
