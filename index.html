@@ -681,12 +681,488 @@ footer{text-align:center;padding:28px 48px;border-top:1px solid rgba(77,234,255,
 
 /* focus visibility */
 a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;}
+
+/* ============================================================
+   OPTIMIZED HOLOGRAPHIC ASSALAMUALAIKUM INTRO
+   ============================================================ */
+body.intro-active{overflow:hidden;}
+body.intro-active .content,
+body.intro-active #netfx,
+body.intro-active .bg-field,
+body.intro-active .scanlines,
+body.intro-active .vignette,
+body.intro-active .crt-flicker{visibility:hidden;}
+
+.salam-intro{
+  position:fixed;inset:0;z-index:99999;display:grid;place-items:center;overflow:hidden;
+  contain:layout paint style;isolation:isolate;
+  background:
+    radial-gradient(circle at 50% 48%,rgba(0,180,145,.19),transparent 32%),
+    radial-gradient(circle at 50% 115%,rgba(0,115,82,.24),transparent 38%),
+    linear-gradient(150deg,#010506 0%,#03120f 50%,#02060a 100%);
+  transition:opacity .8s ease,transform .8s ease,visibility .8s;
+  will-change:opacity,transform;
+}
+.salam-intro.intro-exit{opacity:0;visibility:hidden;transform:scale(1.025);pointer-events:none;}
+
+.salam-pattern{
+  position:absolute;inset:0;opacity:.16;
+  background-image:
+    linear-gradient(30deg,transparent 24%,rgba(126,249,255,.10) 25%,rgba(126,249,255,.10) 26%,transparent 27%,transparent 74%,rgba(126,249,255,.10) 75%,rgba(126,249,255,.10) 76%,transparent 77%),
+    linear-gradient(150deg,transparent 24%,rgba(255,207,107,.07) 25%,rgba(255,207,107,.07) 26%,transparent 27%,transparent 74%,rgba(255,207,107,.07) 75%,rgba(255,207,107,.07) 76%,transparent 77%);
+  background-size:96px 166px;
+}
+.salam-halo{
+  position:absolute;width:min(74vw,640px);aspect-ratio:1;border-radius:50%;
+  background:
+    radial-gradient(circle,transparent 46%,rgba(126,249,255,.10) 47% 48%,transparent 49%),
+    conic-gradient(from 0deg,transparent 0 18%,rgba(126,249,255,.22) 20%,transparent 22% 47%,rgba(255,207,107,.20) 49%,transparent 51% 76%,rgba(0,220,160,.18) 78%,transparent 80%);
+  animation:salamHaloSpin 18s linear infinite;will-change:transform;
+}
+@keyframes salamHaloSpin{to{transform:rotate(360deg);}}
+
+.salam-orbit{
+  position:absolute;width:min(62vw,520px);aspect-ratio:1;border-radius:50%;
+  border:1px solid rgba(126,249,255,.22);
+  animation:salamOrbitSpin 14s linear infinite;will-change:transform;
+}
+.salam-orbit::before,.salam-orbit::after{
+  content:'';position:absolute;width:8px;height:8px;border-radius:50%;
+  background:#7ef9ff;box-shadow:0 0 10px rgba(126,249,255,.85);
+}
+.salam-orbit::before{top:9%;left:22%;}
+.salam-orbit::after{right:12%;bottom:17%;background:#ffcf6b;box-shadow:0 0 10px rgba(255,207,107,.85);}
+.salam-orbit.orbit-2{
+  width:min(44vw,370px);border-style:dashed;border-color:rgba(255,207,107,.26);
+  animation-duration:10s;animation-direction:reverse;
+}
+@keyframes salamOrbitSpin{to{transform:rotate(360deg);}}
+
+.salam-minaret{
+  position:absolute;left:50%;bottom:5%;width:min(78vw,660px);height:115px;
+  transform:translateX(-50%);opacity:.18;background:#58f5d1;
+  clip-path:polygon(0 100%,0 82%,6% 82%,6% 64%,9% 64%,9% 82%,15% 82%,15% 72%,21% 72%,21% 86%,28% 86%,28% 65%,31% 65%,31% 48%,33% 48%,33% 65%,39% 65%,39% 80%,45% 80%,45% 55%,48% 55%,48% 28%,50% 16%,52% 28%,52% 55%,56% 55%,56% 79%,62% 79%,62% 63%,67% 63%,67% 82%,74% 82%,74% 69%,80% 69%,80% 84%,87% 84%,87% 72%,92% 72%,92% 82%,100% 82%,100% 100%);
+  filter:drop-shadow(0 0 8px rgba(88,245,209,.35));
+}
+
+.salam-core{
+  position:relative;z-index:5;width:min(90vw,760px);padding:48px 24px 42px;text-align:center;
+  border-top:1px solid rgba(126,249,255,.30);border-bottom:1px solid rgba(126,249,255,.18);
+  background:linear-gradient(90deg,transparent,rgba(4,28,24,.74),transparent);
+  animation:salamCoreEnter .9s cubic-bezier(.2,.75,.2,1) both;will-change:transform,opacity;
+}
+@keyframes salamCoreEnter{from{opacity:0;transform:translateY(20px) scale(.94);}to{opacity:1;transform:none;}}
+
+.salam-emblem{position:relative;width:86px;height:86px;margin:0 auto 16px;}
+.salam-crescent{
+  position:absolute;inset:8px;border-radius:50%;
+  box-shadow:-17px 2px 0 1px #7ef9ff;
+  filter:drop-shadow(0 0 8px rgba(77,234,255,.65));
+  animation:salamCrescentFloat 3s ease-in-out infinite;will-change:transform;
+}
+.salam-star{
+  position:absolute;right:2px;top:5px;color:#ffcf6b;font-size:20px;
+  text-shadow:0 0 10px rgba(255,207,107,.9);animation:salamStarPulse 1.8s ease-in-out infinite;
+}
+.salam-emblem::before,.salam-emblem::after{
+  content:'';position:absolute;inset:0;border:1px solid rgba(126,249,255,.20);border-radius:50%;
+}
+.salam-emblem::after{inset:-8px;border-style:dashed;animation:salamOrbitSpin 8s linear infinite;}
+@keyframes salamCrescentFloat{50%{transform:translateY(-6px) rotate(4deg);}}
+@keyframes salamStarPulse{50%{transform:scale(1.2);opacity:.65;}}
+
+.salam-arabic{
+  font-family:Georgia,'Times New Roman',serif;font-size:clamp(24px,4vw,45px);
+  color:#e8fff9;letter-spacing:1px;margin-bottom:12px;
+  text-shadow:0 0 12px rgba(126,249,255,.55);
+  opacity:0;animation:salamTextReveal .75s .25s forwards;
+}
+.salam-english{
+  font-family:var(--disp);font-size:clamp(24px,5.1vw,60px);font-weight:900;
+  letter-spacing:clamp(2px,.8vw,8px);color:#fff;text-transform:uppercase;
+  text-shadow:0 0 8px rgba(126,249,255,.85),0 0 26px rgba(77,234,255,.55);
+  opacity:0;animation:salamTextReveal .8s .45s forwards,salamSoftGlow 2.7s 1.3s ease-in-out infinite;
+}
+@keyframes salamTextReveal{from{opacity:0;transform:translateY(14px) scale(.97);}to{opacity:1;transform:none;}}
+@keyframes salamSoftGlow{50%{text-shadow:0 0 10px #7ef9ff,0 0 34px rgba(77,234,255,.72);}}
+
+.salam-subtitle{
+  margin-top:17px;font-family:var(--mono);font-size:clamp(9px,1.5vw,12px);
+  letter-spacing:2.5px;text-transform:uppercase;color:rgba(198,255,238,.62);
+  opacity:0;animation:salamTextReveal .7s .7s forwards;
+}
+.salam-loader{
+  width:min(70vw,340px);height:2px;margin:25px auto 0;overflow:hidden;
+  background:rgba(126,249,255,.11);
+}
+.salam-loader::after{
+  content:'';display:block;width:45%;height:100%;
+  background:linear-gradient(90deg,transparent,#7ef9ff,#ffcf6b,transparent);
+  animation:salamLoaderMove 2.8s .3s ease-in-out forwards;will-change:transform;
+}
+@keyframes salamLoaderMove{from{transform:translateX(-120%);}to{transform:translateX(245%);}}
+
+.salam-status{
+  margin-top:11px;font-family:var(--mono);font-size:9px;letter-spacing:2px;
+  color:rgba(126,249,255,.45);text-transform:uppercase;
+}
+.salam-particle{
+  position:absolute;width:3px;height:3px;border-radius:50%;background:#7ef9ff;
+  box-shadow:0 0 6px rgba(77,234,255,.75);
+  animation:salamParticleFloat linear infinite;will-change:transform,opacity;
+}
+@keyframes salamParticleFloat{
+  from{transform:translate3d(0,105vh,0);opacity:0;}
+  15%{opacity:.75;}
+  to{transform:translate3d(0,-12vh,0);opacity:0;}
+}
+@media(max-width:600px){
+  .salam-core{padding:38px 16px 34px;}
+  .salam-halo{width:92vw;}
+  .salam-orbit{width:80vw;}
+  .salam-orbit.orbit-2{width:58vw;}
+  .salam-minaret{height:78px;}
+}
+@media(prefers-reduced-motion:reduce){
+  .salam-intro *{animation-duration:.01ms !important;animation-iteration-count:1 !important;}
+}
+
+
+/* ============================================================
+   PREMIUM DUAL-THEME BACKGROUND SYSTEM
+   Cinematic dark mode + luminous architectural light mode
+   ============================================================ */
+body{
+  background:#03060c;
+  background-attachment:fixed;
+}
+
+.bg-field{
+  overflow:hidden;
+  background:
+    linear-gradient(180deg,rgba(2,5,12,.16),rgba(2,5,12,.42));
+}
+
+/* Deep cinematic foundation */
+.bg-field::before{
+  content:'';
+  position:absolute;
+  inset:-15%;
+  background:
+    radial-gradient(circle at 16% 18%,rgba(45,111,255,.18),transparent 25%),
+    radial-gradient(circle at 84% 18%,rgba(255,42,190,.12),transparent 24%),
+    radial-gradient(circle at 52% 84%,rgba(32,230,190,.11),transparent 30%),
+    conic-gradient(from 210deg at 50% 48%,rgba(77,234,255,.035),transparent 18%,rgba(255,207,107,.025) 36%,transparent 55%,rgba(77,123,255,.035) 75%,transparent 100%);
+  filter:blur(16px) saturate(118%);
+  animation:premiumBgDrift 24s ease-in-out infinite alternate;
+  will-change:transform;
+}
+
+/* Fine premium texture, not a flat fill */
+.bg-field::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  opacity:.38;
+  background-image:
+    linear-gradient(115deg,transparent 0 46%,rgba(126,249,255,.035) 47%,transparent 48% 100%),
+    linear-gradient(65deg,transparent 0 46%,rgba(255,207,107,.025) 47%,transparent 48% 100%),
+    radial-gradient(circle at center,transparent 0 58%,rgba(0,0,0,.42) 100%);
+  background-size:180px 180px,180px 180px,100% 100%;
+  mask-image:linear-gradient(to bottom,#000 0%,rgba(0,0,0,.9) 72%,rgba(0,0,0,.4) 100%);
+}
+
+@keyframes premiumBgDrift{
+  from{transform:translate3d(-1.2%,-.8%,0) scale(1);}
+  to{transform:translate3d(1.2%,.8%,0) scale(1.04);}
+}
+
+/* Holographic horizon architecture */
+.bg-architecture{
+  position:absolute;
+  left:0;right:0;bottom:-1px;
+  height:38vh;
+  min-height:260px;
+  opacity:.34;
+  background:
+    linear-gradient(to top,rgba(2,6,12,.88),transparent 75%),
+    repeating-linear-gradient(90deg,transparent 0 7.8%,rgba(77,234,255,.055) 8%,transparent 8.2% 13%),
+    linear-gradient(150deg,transparent 0 42%,rgba(77,234,255,.10) 42.2%,transparent 42.5%),
+    linear-gradient(30deg,transparent 0 58%,rgba(255,207,107,.055) 58.2%,transparent 58.5%);
+  clip-path:polygon(0 100%,0 70%,5% 70%,5% 46%,9% 46%,9% 63%,14% 63%,14% 34%,18% 34%,18% 68%,24% 68%,24% 48%,29% 48%,29% 72%,35% 72%,35% 26%,39% 26%,39% 62%,45% 62%,45% 40%,49% 40%,49% 70%,55% 70%,55% 21%,59% 21%,59% 58%,64% 58%,64% 43%,70% 43%,70% 70%,76% 70%,76% 31%,81% 31%,81% 62%,87% 62%,87% 45%,92% 45%,92% 72%,100% 72%,100% 100%);
+  filter:drop-shadow(0 -1px 12px rgba(77,234,255,.10));
+}
+
+.bg-orb{
+  position:absolute;
+  border-radius:50%;
+  pointer-events:none;
+  filter:blur(2px);
+  opacity:.48;
+}
+.bg-orb.orb-a{
+  width:34vw;height:34vw;min-width:320px;min-height:320px;
+  left:-12vw;top:8vh;
+  border:1px solid rgba(77,234,255,.08);
+  background:radial-gradient(circle,rgba(77,123,255,.10),transparent 62%);
+  box-shadow:0 0 90px rgba(77,123,255,.05),inset 0 0 60px rgba(77,234,255,.03);
+}
+.bg-orb.orb-b{
+  width:28vw;height:28vw;min-width:260px;min-height:260px;
+  right:-9vw;top:18vh;
+  border:1px solid rgba(255,62,201,.07);
+  background:radial-gradient(circle,rgba(255,62,201,.075),transparent 64%);
+  box-shadow:0 0 90px rgba(255,62,201,.04),inset 0 0 50px rgba(255,207,107,.025);
+}
+
+/* Improve section separation against rich backgrounds */
+section:not(#hero){
+  background:linear-gradient(180deg,transparent,rgba(4,8,15,.10) 18%,rgba(4,8,15,.15) 82%,transparent);
+}
+.panel{
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.035),transparent 30%),
+    rgba(8,18,31,.58);
+  box-shadow:0 20px 56px rgba(0,0,0,.18),inset 0 1px 0 rgba(255,255,255,.025);
+}
+
+/* ============================================================
+   LIGHT THEME — luminous premium architectural environment
+   ============================================================ */
+body.light-theme{
+  background:
+    linear-gradient(180deg,#eef5fb 0%,#f8fbfd 42%,#eaf2f7 100%);
+}
+body.light-theme .bg-field{
+  background:
+    linear-gradient(180deg,rgba(244,249,253,.52),rgba(226,239,247,.64));
+}
+body.light-theme .bg-field::before{
+  inset:-12%;
+  background:
+    radial-gradient(circle at 12% 16%,rgba(49,95,214,.17),transparent 25%),
+    radial-gradient(circle at 88% 12%,rgba(155,47,121,.10),transparent 24%),
+    radial-gradient(circle at 56% 82%,rgba(0,147,170,.14),transparent 31%),
+    conic-gradient(from 205deg at 50% 48%,rgba(0,127,158,.045),transparent 20%,rgba(168,107,0,.035) 38%,transparent 56%,rgba(49,95,214,.045) 76%,transparent 100%);
+  filter:blur(18px) saturate(108%);
+  opacity:.95;
+}
+body.light-theme .bg-field::after{
+  opacity:.72;
+  background-image:
+    linear-gradient(115deg,transparent 0 46%,rgba(0,127,158,.06) 47%,transparent 48% 100%),
+    linear-gradient(65deg,transparent 0 46%,rgba(168,107,0,.038) 47%,transparent 48% 100%),
+    radial-gradient(circle at 50% 40%,rgba(255,255,255,.88),transparent 38%),
+    radial-gradient(ellipse at center,transparent 0 68%,rgba(93,137,161,.14) 100%);
+  background-size:190px 190px,190px 190px,100% 100%,100% 100%;
+  mix-blend-mode:multiply;
+}
+body.light-theme .bg-nebula{
+  opacity:.9;
+  background:
+    radial-gradient(ellipse 48% 35% at 14% 12%,rgba(49,95,214,.12),transparent 66%),
+    radial-gradient(ellipse 48% 38% at 88% 18%,rgba(155,47,121,.08),transparent 68%),
+    radial-gradient(ellipse 58% 46% at 52% 100%,rgba(0,127,158,.10),transparent 68%);
+  filter:blur(30px);
+}
+body.light-theme .bg-grid{
+  opacity:.72;
+  background-image:
+    linear-gradient(rgba(0,127,158,.065) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,127,158,.065) 1px,transparent 1px);
+  background-size:72px 72px;
+  mask-image:radial-gradient(ellipse 78% 68% at 50% 0%,#000 25%,transparent 82%);
+}
+body.light-theme .bg-stars{
+  opacity:.34;
+  filter:contrast(115%);
+}
+body.light-theme .bg-architecture{
+  opacity:.24;
+  background:
+    linear-gradient(to top,rgba(207,226,237,.72),transparent 78%),
+    repeating-linear-gradient(90deg,transparent 0 7.8%,rgba(0,127,158,.09) 8%,transparent 8.2% 13%),
+    linear-gradient(150deg,transparent 0 42%,rgba(0,127,158,.13) 42.2%,transparent 42.5%),
+    linear-gradient(30deg,transparent 0 58%,rgba(168,107,0,.08) 58.2%,transparent 58.5%);
+  filter:drop-shadow(0 -1px 12px rgba(0,127,158,.10));
+}
+body.light-theme .bg-orb.orb-a{
+  opacity:.52;
+  border-color:rgba(49,95,214,.10);
+  background:radial-gradient(circle,rgba(49,95,214,.12),transparent 63%);
+  box-shadow:0 0 100px rgba(49,95,214,.07),inset 0 0 60px rgba(255,255,255,.32);
+}
+body.light-theme .bg-orb.orb-b{
+  opacity:.45;
+  border-color:rgba(155,47,121,.09);
+  background:radial-gradient(circle,rgba(155,47,121,.09),transparent 64%);
+  box-shadow:0 0 90px rgba(155,47,121,.06),inset 0 0 50px rgba(255,255,255,.30);
+}
+body.light-theme section:not(#hero){
+  background:linear-gradient(180deg,transparent,rgba(255,255,255,.18) 20%,rgba(223,237,246,.20) 82%,transparent);
+}
+body.light-theme .panel{
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.96),rgba(243,249,252,.76));
+  box-shadow:
+    0 22px 56px rgba(49,90,113,.10),
+    inset 0 1px 0 rgba(255,255,255,.96),
+    inset 0 -1px 0 rgba(0,127,158,.035);
+}
+body.light-theme .vignette{
+  background:radial-gradient(ellipse at center,transparent 54%,rgba(117,154,176,.16) 100%);
+}
+body.light-theme #netfx{opacity:.25;}
+
+@media(max-width:760px){
+  .bg-field::before{animation:none;}
+  .bg-architecture{height:30vh;min-height:190px;opacity:.22;}
+  .bg-orb{opacity:.28 !important;}
+  body.light-theme .bg-grid{background-size:52px 52px;}
+}
+@media(prefers-reduced-motion:reduce){
+  .bg-field::before{animation:none !important;}
+}
+
+
+
+/* ============================================================
+   SMOOTH CLEAN PREMIUM BACKGROUND — PERFORMANCE EDITION
+   ============================================================ */
+body{
+  background:#050914 !important;
+}
+.bg-field{
+  background:
+    radial-gradient(circle at 18% 12%,rgba(36,104,255,.16),transparent 30%),
+    radial-gradient(circle at 82% 18%,rgba(0,210,190,.11),transparent 28%),
+    radial-gradient(circle at 52% 92%,rgba(80,60,210,.10),transparent 34%),
+    linear-gradient(145deg,#050914 0%,#07111d 48%,#04070e 100%) !important;
+  overflow:hidden;
+}
+.bg-field::before{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    linear-gradient(120deg,transparent 0 38%,rgba(77,234,255,.035) 39%,transparent 40% 100%),
+    linear-gradient(60deg,transparent 0 42%,rgba(77,123,255,.028) 43%,transparent 44% 100%);
+  background-size:220px 220px;
+  opacity:.48;
+  filter:none !important;
+  animation:none !important;
+  transform:none !important;
+}
+.bg-field::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(ellipse at 50% -5%,rgba(126,249,255,.10),transparent 48%),
+    radial-gradient(ellipse at center,transparent 48%,rgba(0,0,0,.48) 100%);
+  opacity:1;
+}
+.bg-nebula{
+  inset:0 !important;
+  background:
+    radial-gradient(ellipse 42% 32% at 14% 16%,rgba(49,95,214,.13),transparent 72%),
+    radial-gradient(ellipse 38% 30% at 88% 18%,rgba(0,170,190,.09),transparent 72%) !important;
+  filter:none !important;
+  opacity:1 !important;
+}
+.bg-grid{
+  opacity:.42 !important;
+  background-image:
+    linear-gradient(rgba(77,234,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(77,234,255,.035) 1px,transparent 1px) !important;
+  background-size:82px 82px !important;
+  mask-image:linear-gradient(to bottom,#000 0%,rgba(0,0,0,.65) 45%,transparent 94%) !important;
+}
+.bg-stars{opacity:.34 !important;}
+.bg-orb,.bg-architecture{display:none !important;}
+#netfx,.scanlines,.crt-flicker{display:none !important;}
+.vignette{
+  background:radial-gradient(ellipse at center,transparent 58%,rgba(0,0,0,.42) 100%) !important;
+}
+section:not(#hero){background:transparent !important;}
+nav{backdrop-filter:blur(8px) !important;}
+.panel{backdrop-filter:blur(5px) !important;}
+
+body.light-theme{
+  background:#eef4f8 !important;
+}
+body.light-theme .bg-field{
+  background:
+    radial-gradient(circle at 16% 12%,rgba(63,109,210,.14),transparent 31%),
+    radial-gradient(circle at 84% 16%,rgba(0,143,160,.10),transparent 28%),
+    radial-gradient(circle at 50% 92%,rgba(186,145,65,.08),transparent 34%),
+    linear-gradient(145deg,#eef4f8 0%,#f9fbfc 48%,#e8f0f5 100%) !important;
+}
+body.light-theme .bg-field::before{
+  background:
+    linear-gradient(120deg,transparent 0 38%,rgba(0,127,158,.045) 39%,transparent 40% 100%),
+    linear-gradient(60deg,transparent 0 42%,rgba(49,95,214,.035) 43%,transparent 44% 100%);
+  background-size:230px 230px;
+  opacity:.62;
+}
+body.light-theme .bg-field::after{
+  background:
+    radial-gradient(ellipse at 50% -8%,rgba(255,255,255,.88),transparent 46%),
+    radial-gradient(ellipse at center,transparent 58%,rgba(103,137,157,.12) 100%);
+}
+body.light-theme .bg-nebula{
+  background:
+    radial-gradient(ellipse 42% 32% at 14% 16%,rgba(49,95,214,.10),transparent 72%),
+    radial-gradient(ellipse 38% 30% at 88% 18%,rgba(0,127,158,.08),transparent 72%) !important;
+  filter:none !important;
+}
+body.light-theme .bg-grid{
+  opacity:.46 !important;
+  background-image:
+    linear-gradient(rgba(0,127,158,.045) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,127,158,.045) 1px,transparent 1px) !important;
+}
+body.light-theme .vignette{
+  background:radial-gradient(ellipse at center,transparent 66%,rgba(117,151,171,.12) 100%) !important;
+}
+body.light-theme .panel{
+  background:rgba(255,255,255,.78) !important;
+  box-shadow:0 16px 40px rgba(55,88,108,.09),inset 0 1px 0 rgba(255,255,255,.92) !important;
+}
+
+/* Eliminate expensive continuous motion while preserving polish */
+.panel,.pcard,.ecard,.ocard{transform:none !important;}
+@media(max-width:760px){
+  .bg-grid{background-size:58px 58px !important;}
+  .panel{backdrop-filter:none !important;}
+  nav{backdrop-filter:blur(6px) !important;}
+}
+
 </style>
 </head>
-<body>
+<body class="intro-active">
+
+<div class="salam-intro" id="salamIntro" role="dialog" aria-label="Welcome">
+  <div class="salam-pattern" aria-hidden="true"></div>
+  <div class="salam-halo" aria-hidden="true"></div>
+  <div class="salam-orbit" aria-hidden="true"></div>
+  <div class="salam-orbit orbit-2" aria-hidden="true"></div>
+  <div class="salam-minaret" aria-hidden="true"></div>
+  <div class="salam-core">
+    <div class="salam-emblem" aria-hidden="true">
+      <div class="salam-crescent"></div>
+      <div class="salam-star">✦</div>
+    </div>
+    <div class="salam-arabic">السلام عليكم ورحمة الله وبركاته</div>
+    <div class="salam-english">Assalamualaikum</div>
+    <div class="salam-subtitle">Welcome to Ameen Ul Hassan Khan's Digital Portfolio</div>
+    <div class="salam-loader" aria-hidden="true"></div>
+    <div class="salam-status">Secure interface initializing...</div>
+  </div>
+</div>
 
 <canvas id="netfx" aria-hidden="true"></canvas>
-<div class="bg-field"><div class="bg-nebula"></div><div class="bg-grid"></div><div class="bg-stars"></div></div>
+<div class="bg-field"><div class="bg-nebula"></div><div class="bg-grid"></div><div class="bg-stars"></div><div class="bg-orb orb-a"></div><div class="bg-orb orb-b"></div><div class="bg-architecture"></div></div>
 <div class="scanlines"></div>
 <div class="vignette"></div>
 <div class="crt-flicker"></div>
@@ -964,6 +1440,37 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--cyan);outline-offse
 </div>
 
 <script>
+
+/* ================= OPTIMIZED HOLOGRAPHIC SALAM INTRO ================= */
+(function(){
+  var intro=document.getElementById('salamIntro');
+  if(!intro) return;
+
+  var particleCount=window.innerWidth<600 ? 4 : 6;
+  var fragment=document.createDocumentFragment();
+  for(var i=0;i<particleCount;i++){
+    var p=document.createElement('i');
+    p.className='salam-particle';
+    p.style.left=(5+Math.random()*90)+'%';
+    p.style.animationDuration=(5+Math.random()*3)+'s';
+    p.style.animationDelay=(-Math.random()*6)+'s';
+    fragment.appendChild(p);
+  }
+  intro.appendChild(fragment);
+
+  var reduce=window.matchMedia &&
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var delay=reduce ? 500 : 3300;
+
+  window.setTimeout(function(){
+    intro.classList.add('intro-exit');
+    document.body.classList.remove('intro-active');
+    window.setTimeout(function(){
+      if(intro && intro.parentNode) intro.remove();
+    },850);
+  },delay);
+})();
+
 var REDUCE_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 /* ================= LIGHT / DARK THEME TOGGLE ================= */
@@ -1236,134 +1743,10 @@ var REDUCE_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)').matche
   if(REDUCE_MOTION){ drawStatic(); } else { requestAnimationFrame(draw); }
 })();
 
-/* ================= BACKGROUND PARTICLE NETWORK + DATA STREAMS ================= */
+/* ================= BACKGROUND EFFECT DISABLED FOR PERFORMANCE ================= */
 (function(){
   var canvas=document.getElementById('netfx');
-  if(!canvas) return;
-  var ctx=canvas.getContext('2d');
-  var dpr=Math.min(window.devicePixelRatio||1, 1.6);
-  var W,H,nodes=[],streaks=[];
-  var mouse={x:-9999,y:-9999};
-  var scrollY=window.scrollY||0;
-  var running=true;
-  var DARK_COLORS=['#4deaff','#ff3ec9','#4d7bff'];
-  var LIGHT_COLORS=['#007f9e','#9b2f79','#315fd6'];
-  function palette(){ return document.body.classList.contains('light-theme') ? LIGHT_COLORS : DARK_COLORS; }
-
-  function resize(){
-    W=window.innerWidth; H=window.innerHeight;
-    canvas.width=W*dpr; canvas.height=H*dpr;
-    canvas.style.width=W+'px'; canvas.style.height=H+'px';
-    ctx.setTransform(dpr,0,0,dpr,0,0);
-
-    var nCount=Math.max(26, Math.min(60, Math.round(W/34)));
-    nodes=[];
-    for(var i=0;i<nCount;i++){
-      nodes.push({
-        x:Math.random()*W, y:Math.random()*H,
-        vx:(Math.random()-0.5)*0.25, vy:(Math.random()-0.5)*0.25,
-        r: 1+Math.random()*1.6,
-        c: palette()[i%palette().length]
-      });
-    }
-    var sCount=Math.max(8, Math.min(22, Math.round(W/70)));
-    streaks=[];
-    for(var j=0;j<sCount;j++){ streaks.push(makeStreak(true)); }
-  }
-
-  function makeStreak(seed){
-    return {
-      x:Math.random()*W,
-      y: seed ? Math.random()*H : -30-Math.random()*200,
-      len:26+Math.random()*70,
-      speed:0.5+Math.random()*1.4,
-      c: palette()[Math.floor(Math.random()*palette().length)],
-      a: 0.08+Math.random()*0.18
-    };
-  }
-
-  function step(){
-    if(!running) return;
-    ctx.clearRect(0,0,W,H);
-    var parallax=scrollY*0.03;
-
-    /* connecting network lines */
-    for(var i=0;i<nodes.length;i++){
-      var n=nodes[i];
-      n.x+=n.vx; n.y+=n.vy;
-      if(n.x<0||n.x>W) n.vx*=-1;
-      if(n.y<0||n.y>H) n.vy*=-1;
-
-      var dx=mouse.x-n.x, dy=mouse.y-n.y;
-      var dist=Math.sqrt(dx*dx+dy*dy);
-      if(dist<120){
-        n.x -= dx*0.0025; n.y -= dy*0.0025;
-      }
-
-      for(var j=i+1;j<nodes.length;j++){
-        var m=nodes[j];
-        var ddx=n.x-m.x, ddy=n.y-m.y;
-        var d=Math.sqrt(ddx*ddx+ddy*ddy);
-        if(d<130){
-          ctx.strokeStyle=document.body.classList.contains('light-theme')
-            ? 'rgba(0,127,158,'+(0.10*(1-d/130))+')'
-            : 'rgba(77,234,255,'+(0.14*(1-d/130))+')';
-          ctx.lineWidth=1;
-          ctx.beginPath();
-          ctx.moveTo(n.x + Math.sin(parallax)*2, n.y);
-          ctx.lineTo(m.x + Math.sin(parallax)*2, m.y);
-          ctx.stroke();
-        }
-      }
-    }
-    for(var k=0;k<nodes.length;k++){
-      var nd=nodes[k];
-      ctx.fillStyle=nd.c;
-      ctx.globalAlpha=0.55;
-      ctx.beginPath();
-      ctx.arc(nd.x,nd.y,nd.r,0,Math.PI*2);
-      ctx.fill();
-    }
-    ctx.globalAlpha=1;
-
-    /* falling data-stream lines */
-    for(var s=0;s<streaks.length;s++){
-      var st=streaks[s];
-      st.y+=st.speed;
-      if(st.y-st.len>H){ Object.assign(st, makeStreak(false)); }
-      var x=st.x+Math.sin(parallax+s)*5;
-      ctx.strokeStyle=st.c;
-      ctx.globalAlpha=st.a;
-      ctx.lineWidth=1;
-      ctx.beginPath();
-      ctx.moveTo(x, st.y-st.len);
-      ctx.lineTo(x, st.y);
-      ctx.stroke();
-    }
-    ctx.globalAlpha=1;
-
-    requestAnimationFrame(step);
-  }
-
-  function stepOnce(){
-    ctx.clearRect(0,0,W,H);
-    nodes.forEach(function(n){
-      ctx.fillStyle=n.c; ctx.globalAlpha=0.4;
-      ctx.beginPath(); ctx.arc(n.x,n.y,n.r,0,Math.PI*2); ctx.fill();
-    });
-    ctx.globalAlpha=1;
-  }
-
-  window.addEventListener('resize', function(){ resize(); if(REDUCE_MOTION) stepOnce(); }, {passive:true});
-  window.addEventListener('mousemove', function(e){ mouse.x=e.clientX; mouse.y=e.clientY; }, {passive:true});
-  window.addEventListener('scroll', function(){ scrollY=window.scrollY; }, {passive:true});
-  document.addEventListener('visibilitychange', function(){
-    running = !document.hidden && !REDUCE_MOTION;
-    if(running) requestAnimationFrame(step);
-  });
-
-  resize();
-  if(REDUCE_MOTION){ stepOnce(); } else { requestAnimationFrame(step); }
+  if(canvas) canvas.remove();
 })();
 
 /* ================= GSAP: reveal + holo motion ================= */
@@ -1394,11 +1777,6 @@ var REDUCE_MOTION = window.matchMedia('(prefers-reduced-motion: reduce)').matche
       gsap.to('.ring.r3',{rotate:360,duration:34,ease:'none',repeat:-1,transformOrigin:'50% 50%'});
       gsap.to('#ringTick',{rotate:360,duration:60,ease:'none',repeat:-1,transformOrigin:'50% 50%'});
 
-      if(!isTouch){
-        gsap.utils.toArray('.panel').forEach(function(p,i){
-          gsap.to(p,{y:(i%2===0?-6:6),duration:3.4+((i%3)*.4),ease:'sine.inOut',repeat:-1,yoyo:true,delay:i*.08});
-        });
-      }
     }
 
     if(!isTouch && !reduce){
